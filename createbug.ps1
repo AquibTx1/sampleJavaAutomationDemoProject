@@ -83,7 +83,7 @@ $projects.value  | ForEach-Object {
     $workitemType = "Issue"
     $Area = "newdemo"
     $AssignedTo = "MOHAMMAD SHABAN"
-    $Reason = "New"
+    $Reason = "Added to backlog"
     $tags = "Automation"
     $tfsBaseUrl = GetUrl -orgUrl $orgUrl -header $header -AreaId $testAreaId
     $tfsWorkTrackingItemUrl = GetUrl -orgUrl $orgUrl -header $header -AreaId $workTrackingAreaId
