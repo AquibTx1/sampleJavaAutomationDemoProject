@@ -55,7 +55,7 @@ $projects.value  | ForEach-Object {
     $tfsBaseUrl = GetUrl -orgUrl $orgUrl -header $header -AreaId $testAreaId
 
     #  https://docs.microsoft.com/en-us/rest/api/azure/devops/test/runs/list?view=azure-devops-rest-6.0
-    if ($project -eq "DevSecOps") {
+    if ($project -eq "demo-pipeline") {
         $testRunUrl = "$tfsBaseUrl/$project/_apis/test/runs?api-version=6.0"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $testRunResultsUri = Invoke-RestMethod -Uri $testRunUrl -Method Get -ContentType "application/json" -Headers $header
@@ -80,7 +80,7 @@ Write-Host "Getting passed/failed results from last run" -ForegroundColor Green
 $projects.value  | ForEach-Object {
     $project = $_.name
     $workTrackingAreaId = "85f8c7b6-92fe-4ba6-8b6d-fbb67c809341"
-    $workitemType = "Issue"
+    $workitemType = "Task"
     $Area = "demo-pipeline"
     $AssignedTo = "MOHAMMAD SHABAN"
     $Reason = "To Do"
@@ -89,7 +89,7 @@ $projects.value  | ForEach-Object {
     $tfsWorkTrackingItemUrl = GetUrl -orgUrl $orgUrl -header $header -AreaId $workTrackingAreaId
 
     # https://docs.microsoft.com/en-us/rest/api/azure/devops/test/results/list?view=azure-devops-rest-6.0
-    if ($project -eq "DevSecOps") {
+    if ($project -eq "demo-pipeline") {
         $testResultsRunUrl = "$tfsBaseUrl/$project/_apis/test/Runs/$lastRunId/results?api-version=6.0"
         [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
         $lastTestSuiteResult = Invoke-RestMethod $testResultsRunUrl -Method Get -ContentType "application/json" -Headers $header
