@@ -80,7 +80,7 @@ Write-Host "Getting passed/failed results from last run" -ForegroundColor Green
 $projects.value  | ForEach-Object {
     $project = $_.name
     $workTrackingAreaId = "85f8c7b6-92fe-4ba6-8b6d-fbb67c809341"
-    $workitemType = "Task"
+    $workitemType = "Issue"
     $Area = "demo-pipeline"
     $AssignedTo = "MOHAMMAD SHABAN"
     $Reason = "To Do"
